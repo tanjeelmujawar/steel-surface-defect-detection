@@ -42,36 +42,36 @@ type=["jpg", "jpeg", "png", "bmp"]
 if uploaded:
 
 
-img = Image.open(uploaded).convert("RGB")
-img = img.resize((224, 224))
-
-st.image(img, caption="Uploaded Image", use_container_width=True)
-
-arr = np.array(img, dtype=np.float32)
-
-# Normalize if training used /255
-arr = arr / 255.0
-
-arr = np.expand_dims(arr, axis=0)
-
-interpreter.set_tensor(
-    input_details[0]['index'],
-    arr
-)
-
-interpreter.invoke()
-
-pred = interpreter.get_tensor(
-    output_details[0]['index']
-)
-
-label = class_names[np.argmax(pred)]
-confidence = float(np.max(pred) * 100)
-
-st.success(
-    f"Prediction: {label}"
-)
-
-st.info(
-    f"Confidence: {confidence:.2f}%"
-)
+    img = Image.open(uploaded).convert("RGB")
+    img = img.resize((224, 224))
+    
+    st.image(img, caption="Uploaded Image", use_container_width=True)
+    
+    arr = np.array(img, dtype=np.float32)
+    
+    # Normalize if training used /255
+    arr = arr / 255.0
+    
+    arr = np.expand_dims(arr, axis=0)
+    
+    interpreter.set_tensor(
+        input_details[0]['index'],
+        arr
+    )
+    
+    interpreter.invoke()
+    
+    pred = interpreter.get_tensor(
+        output_details[0]['index']
+    )
+    
+    label = class_names[np.argmax(pred)]
+    confidence = float(np.max(pred) * 100)
+    
+    st.success(
+        f"Prediction: {label}"
+    )
+    
+    st.info(
+        f"Confidence: {confidence:.2f}%"
+    )
