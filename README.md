@@ -1,5 +1,7 @@
 # Automated Steel Surface Defect Detection using CNN & Explainable AI
 
+## 🚀 Live Demo: [CLICK HERE TO USE MODEL](https://steel-surface-defect-detection-4sqyy2ujebxhbkw5lfvdch.streamlit.app/)
+
 ## Project Overview
 
 This project uses Deep Learning and Computer Vision to automatically detect and classify steel surface defects from industrial images.
