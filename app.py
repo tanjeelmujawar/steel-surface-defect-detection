@@ -38,9 +38,10 @@ uploaded = st.file_uploader(
 type=["jpg", "jpeg", "png", "bmp"]
 )
 
+
 if uploaded:
 
-```
+
 img = Image.open(uploaded).convert("RGB")
 img = img.resize((224, 224))
 
@@ -74,4 +75,3 @@ st.success(
 st.info(
     f"Confidence: {confidence:.2f}%"
 )
-```
